@@ -59,8 +59,8 @@ if exist libusb.7z (
 )
 
 REM Download the libusb-1.0 ZIP file
-echo Downloading libusb-1.0.dll
-curl -L -o libusb.7z "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.7z"
+echo Downloading libusb-1.0.dll from libusb-1.0.23
+curl -L -o libusb.7z "https://github.com/libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.7z"
 
 REM Create the directory for libusb dll
 set "LIBUSB_DIR=C:\Program Files\libusb"
