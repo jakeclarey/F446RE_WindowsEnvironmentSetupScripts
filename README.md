@@ -2,7 +2,7 @@ These .bat files are for setting up a Visual Studio Code (VS Code) development e
 Windows 10/11.
 
 # Step 1
-Clone this repository.
+Clone or download this repository (Just get the .bat files onto your device).
 
 # Step 2
 Run the install_toolsVSCode.bat file as Administrator.
