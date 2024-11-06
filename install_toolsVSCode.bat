@@ -86,5 +86,5 @@ echo Now installing Visual Studio Code
 curl -L -o "C:\Program Files\VSCodeUserSetup.exe" "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
 "C:\Program Files\VSCodeUserSetup.exe"
 echo Visual Studio Code installed!
-
+echo Batchfile run completed!
 pause
