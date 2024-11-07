@@ -23,7 +23,7 @@ in the next steps to fail.
 
 # Step 5
 **MAKE SURE TO RUN VS CODE AS ADMINISTRATOR** *you can right click the shortcut to it and click* 
-*advanced to set to always open as administrator for convenience*
+*properties and then advanced to set to always open as administrator for convenience*
 
 Clone the following repository which will contain a basic on-board LD2 blink program for the 
 Nucleo-F446RE. (You can also download the repository and open the folder in VS Code).
