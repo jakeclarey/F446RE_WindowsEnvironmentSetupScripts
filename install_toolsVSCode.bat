@@ -52,7 +52,7 @@ if exist "C:\Program Files (x86)\stlink" (
     echo Removing existing "C:\Program Files (x86)\stlink"...
     rmdir /Q /S "C:\Program Files (x86)\stlink"
 )
-pause
+
 mkdir "C:\Program Files (x86)\stlink"
 
 REM Move chip config to Program Files (x86) directory
