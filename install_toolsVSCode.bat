@@ -8,7 +8,6 @@ set PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 REM Install the tools using Chocolatey
 choco install make --yes
 choco install gcc-arm-embedded --yes
-choco install cmake --yes
 choco install git --yes
 choco install 7zip --yes
 

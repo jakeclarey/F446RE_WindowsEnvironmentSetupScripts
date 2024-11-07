@@ -2,23 +2,27 @@ These .bat files are for setting up a Visual Studio Code (VS Code) development e
 Windows 10/11.
 
 # Step 1
-Clone or download this repository (Just get the .bat files onto your device).
+Clone or download this repository (Just get the .bat files onto your device). I typically put
+the extracted folder on the Desktop.
 
 # Step 2
-Run the install_toolsVSCode.bat file as Administrator.
+Run AS ADMINISTRATOR install_toolsVSCode.bat file.
 If you have VS Code already installed, you may skip that portion when the installer pops up (just
 cancel it).
 
 # Step 3
-Run the install_extensions.bat file as Administrator.
+Run AS ADMINISTRATOR the install_extensions.bat file.
 
 # Step 4
 Install the STSW STLINK Drivers from STMicroelectronics website. Which can be found here:
 https://www.st.com/en/development-tools/stsw-link009.html
 
 # Step 5
+**MAKE SURE TO RUN VS CODE AS ADMINISTRATOR** *you can right click the shortcut to it and click* 
+*advanced to set to always open as administrator for convenience*
+
 Clone the following repository which will contain a basic on-board LD2 blink program for the 
-Nucleo-F446RE.
+Nucleo-F446RE. (You can also download the repository and open the folder in VS Code).
 https://github.com/jakeclarey/STM32F446_VSCode
 
 Within this project, open the .vscode folder and change the settings.json project_name variable to 
@@ -42,10 +46,3 @@ you have a good understanding of how the environment works. A reccommendation I 
 a template.h, a template.c, and a main.c in the respective folders. Customize these to your coding
 organization style and any time you want to make a new project, copy and paste the !Template folder
 and rename it to whatever new project you will be working on.
-
-# Step 7
-If you are tired of VS Code telling you to Commit changes to the repo, open the terminal, default
-shortcut is ctrl+shft+c, and enter the following command:
-rmdir /s /q .git
-
-This will "remove the attachment your environment" has to the original github repository.
