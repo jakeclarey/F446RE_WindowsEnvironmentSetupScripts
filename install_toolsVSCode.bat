@@ -44,9 +44,6 @@ REM Move binaries to the directory
 echo Moving binaries to PATH directory...
 move /Y C:\Windows\System32\stlink-1.8.0-win32\bin\* "%STUTIL_DIR%\"
 
-REM Add the directory to the PATH
-setx PATH "%PATH%;%STUTIL_DIR%" /M
-
 REM Remove the existing Program Files (x86) stlink directory if it exists
 if exist "C:\Program Files (x86)\stlink" (
     echo Removing existing "C:\Program Files (x86)\stlink"...
@@ -85,8 +82,47 @@ REM Move dll to the the directory
 echo Moving dll to PATH directory
 move /Y C:\Windows\System32\libusb\MinGW64\dll\* "%LIBUSB_DIR%\"
 
-REM Add the directory to the PATH
-setx PATH "%PATH%;%LIBUSB_DIR%" /M
+REM Directories to check
+set "DIR1=%STUTIL_DIR%"
+set "DIR2=%LIBUSB_DIR%"
+
+REM Initialize flags
+set "DIR1_EXISTS=0"
+set "DIR2_EXISTS=0"
+
+REM Check if DIR1 is in the PATH
+echo %PATH% | findstr /i /c:"%DIR1%" >nul 2>&1
+if %ERRORLEVEL%==0 (
+    set "DIR1_EXISTS=1"
+)
+
+REM Check if DIR2 is in the PATH
+echo %PATH% | findstr /i /c:"%DIR2%" >nul 2>&1
+if %ERRORLEVEL%==0 (
+    set "DIR2_EXISTS=1"
+)
+
+REM Check the flags and echo the results using nested if statements
+if %DIR1_EXISTS%==1 (
+    if %DIR2_EXISTS%==1 (
+        echo Both %DIR1% and %DIR2% exist in PATH
+        echo Continuing...
+    ) else (
+        echo %DIR1% exists in PATH, but %DIR2% does not
+        echo Adding %DIR2% to PATH...
+        setx PATH "%PATH%;%LIBUSB_DIR%" /M
+    )
+) else (
+    if %DIR2_EXISTS%==1 (
+        echo %DIR2% exists in PATH, but %DIR1% does not
+        echo Adding %DIR1% to PATH...
+        setx PATH "%PATH%;%STUTIL_DIR%" /M
+    ) else (
+        echo Neither %DIR1% nor %DIR2% exist in PATH
+        echo Adding %DIR1% and %DIR2% to PATH...
+        setx PATH "%PATH%;%LIBUSB_DIR%;%STUTIL_DIR%" /M
+    )
+)
 
 echo All tools installed!
 
