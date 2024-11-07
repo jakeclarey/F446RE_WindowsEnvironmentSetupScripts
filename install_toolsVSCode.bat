@@ -47,9 +47,17 @@ move /Y C:\Windows\System32\stlink-1.8.0-win32\bin\* "%STUTIL_DIR%\"
 REM Add the directory to the PATH
 setx PATH "%PATH%;%STUTIL_DIR%" /M
 
+REM Remove the existing Program Files (x86) stlink directory if it exists
+if exist "C:\Program Files (x86)\stlink" (
+    echo Removing existing "C:\Program Files (x86)\stlink"...
+    rmdir /Q /S "C:\Program Files (x86)\stlink"
+)
+pause
+mkdir "C:\Program Files (x86)\stlink"
+
 REM Move chip config to Program Files (x86) directory
 echo Moving chip config folder to Program Files (x86) directory
-move /Y "C:\Windows\System32\stlink-1.8.0-win32\Program Files (x86)\stlink" "C:\Program Files (x86)\"
+move /Y "C:\Windows\System32\stlink-1.8.0-win32\Program Files (x86)\stlink\config" "C:\Program Files (x86)\stlink"
 
 REM Remove the existing libusb.zip if it exists
 if exist libusb.7z (
