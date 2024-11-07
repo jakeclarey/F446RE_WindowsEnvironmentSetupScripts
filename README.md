@@ -17,6 +17,10 @@ Run AS ADMINISTRATOR the install_extensions.bat file.
 Install the STSW STLINK Drivers from STMicroelectronics website. Which can be found here:
 https://www.st.com/en/development-tools/stsw-link009.html
 
+Once you have downloaded the ZIP file from the website, run AS ADMINISTRATOR the dpinst_amd64.exe
+file to install the STLINK drivers. Failure to do so properly will cause the Flash Controller task
+in the next steps to fail.
+
 # Step 5
 **MAKE SURE TO RUN VS CODE AS ADMINISTRATOR** *you can right click the shortcut to it and click* 
 *advanced to set to always open as administrator for convenience*
